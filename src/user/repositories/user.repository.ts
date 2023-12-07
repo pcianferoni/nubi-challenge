@@ -3,7 +3,7 @@ import { readFile } from 'fs/promises';
 import { writeFileSync } from 'fs';
 import { User } from 'src/shared/dto/user.dto';
 
-const pathFile = '/../../data/users.json';
+const pathFile = '/../../../data/users.json';
 
 @Injectable()
 export class UserRepository {
