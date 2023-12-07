@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "0fc86f0d-b02e-43f9-b87c-a08b5626d91e",
+		"name": "nubi challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8298219"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Find users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "email",
+									"disabled": true
+								},
+								{
+									"key": "sortDirection",
+									"value": "descending",
+									"disabled": true
+								},
+								{
+									"key": "match[email]",
+									"value": "Marielle_Nader58@gmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"wallet_id\": \"ca3a9c9b-8095-4346-bfb5-ccfc4e857095\",\n    \"email\": \"pablo@hotmail.com\",\n    \"name\": \"Pablo\",\n    \"last_name\": \"Cianferoni\",\n    \"sex_type\": \"male\",\n    \"dni\": \"38955765\",\n    \"birth_date\": \"1995-08-28T11:04:20.326Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"wallet_id\": \"ca3a9c9b-8095-4346-bfb5-ccfc4e857095\",\n    \"name\": \"Pablo Facundo\",\n    \"last_name\": \"Cianferoni Boullón\",\n    \"sex_type\": \"male\",\n    \"dni\": \"38955765\",\n    \"birth_date\": \"1995-08-28T11:04:20.326Z\",\n    \"created_at\": \"2023-10-02T00:59:17.996Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/:email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user/:email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": "pablo@hotmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@mail.com\",\n    \"dni\": \"00000000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
