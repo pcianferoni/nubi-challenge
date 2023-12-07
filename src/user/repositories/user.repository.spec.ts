@@ -32,7 +32,7 @@ describe('UserRepository', () => {
     },
   ];
 
-  const testFilePath = path.join(__dirname, '/../../data/users.json');
+  const testFilePath = path.join(__dirname, '/../../../data/users.json');
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
