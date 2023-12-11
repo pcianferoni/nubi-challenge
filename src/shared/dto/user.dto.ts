@@ -14,6 +14,9 @@ export class User {
   last_name: string;
 
   @ApiProperty()
+  password: string;
+
+  @ApiProperty()
   sex_type: string;
 
   @ApiProperty()

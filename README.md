@@ -39,7 +39,7 @@ $ npm run test:cov
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `dni` | `string` | **Required**. Doc Number |
-| `email` | `string` | **Required**. User email |
+| `password` | `string` | **Required**. User password |
 
 
 #### Create user
@@ -53,6 +53,7 @@ $ npm run test:cov
 | `email`      | `string` | Email of user to create |
 | `name`      | `string` | Name of user to create|
 | `last_name`      | `string` | Last name of user to create |
+| `password`      | `string` | password of user to create |
 | `sex_type`      | `string` | Gender of user to create |
 | `dni`      | `string` | DNI of user to create |
 | `birth_date`      | `string` | Birth date of user to create |

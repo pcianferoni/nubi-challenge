@@ -10,7 +10,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
   @Post('login')
   @ApiResponse({ status: 201, type: LoginOutput, description: 'User successfully deleted' })
-  async login(@Body() { email, dni }: LoginDto): Promise<LoginOutput> {
-    return this.authService.validateUser(email, dni);
+  async login(@Body() { email, password }: LoginDto): Promise<LoginOutput> {
+    return this.authService.validateUser(email, password);
   }
 }

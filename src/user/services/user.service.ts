@@ -7,6 +7,7 @@ import { ISorting } from '../interfaces/sorting.interface';
 import { IMatchingCriteria } from '../interfaces/matching.interface';
 import { FindUserOutput } from '../dto/find-user.output';
 import { User } from 'src/shared/dto/user.dto';
+import * as argon2 from 'argon2';
 
 @Injectable()
 export class UserService {
@@ -21,24 +22,37 @@ export class UserService {
         if (isAnExistingUserEmail) {
           callback('email already exists');
         } else {
-          const userToCreate = {
-            ...createUserInput,
-            created_at: new Date().toISOString(),
-          };
+          argon2
+            .hash(createUserInput.password)
+            .then((hashedPassword) => {
+              const userToCreate = {
+                ...createUserInput,
+                password: hashedPassword,
+                created_at: new Date().toISOString(),
+              };
 
-          users.push(userToCreate);
+              users.push(userToCreate);
 
-          this.userRepository
-            .writeFile(users)
-            .then(() => callback(null, userToCreate))
+              this.userRepository
+                .writeFile(users)
+                .then(() => {
+                  delete userToCreate.password;
+                  callback(null, userToCreate);
+                })
+                .catch((_error) =>
+                  callback(
+                    new InternalServerErrorException('An error occurred while writing the file'),
+                  ),
+                );
+            })
             .catch((_error) =>
               callback(
-                new InternalServerErrorException('an error has occurred while writing the file '),
+                new InternalServerErrorException('An error occurred while hashing the password'),
               ),
             );
         }
       })
-      .catch((_error) => callback(new InternalServerErrorException('an error has occurred')));
+      .catch((_error) => callback(new InternalServerErrorException('An error occurred')));
   }
 
   update(email: string, updateUserDto: UpdateUserDto): Promise<User> {

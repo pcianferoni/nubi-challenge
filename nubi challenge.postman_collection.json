@@ -80,7 +80,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"wallet_id\": \"ca3a9c9b-8095-4346-bfb5-ccfc4e857095\",\n    \"email\": \"pablo@hotmail.com\",\n    \"name\": \"Pablo\",\n    \"last_name\": \"Cianferoni\",\n    \"sex_type\": \"male\",\n    \"dni\": \"38955765\",\n    \"birth_date\": \"1995-08-28T11:04:20.326Z\"\n}",
+							"raw": "{\n \"wallet_id\": \"ca3a9c9b-8095-4346-bfb5-ccfc4e857095\",\n    \"email\": \"pablo@hotmail.com\",\n    \"name\": \"Pablo\",\n    \"last_name\": \"Cianferoni\",\n    \"sex_type\": \"male\",\n    \"password\": \"12345678\",\n    \"dni\": \"38955765\",\n    \"birth_date\": \"1995-08-28T11:04:20.326Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -198,7 +198,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"user@mail.com\",\n    \"dni\": \"00000000\"\n}",
+							"raw": "{\n    \"email\": \"user@mail.com\",\n    \"password\": \"12345678\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

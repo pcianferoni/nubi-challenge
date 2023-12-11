@@ -12,9 +12,9 @@ export class LoginDto {
 
   @IsString()
   @ApiProperty({
-    description: 'User doc number required',
+    description: 'User password required',
     default: '00000000',
     type: 'string',
   })
-  dni: string;
+  password: string;
 }
